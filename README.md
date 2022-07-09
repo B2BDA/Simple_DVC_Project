@@ -2,5 +2,5 @@
 This is a simple DVC project showcase
 
 # Workflow
-<img src = 'others/imgs/dvc_.png' alt = 'workflow' >
+<img src = 'others/dvc_.png' alt = 'workflow' >
 cd
