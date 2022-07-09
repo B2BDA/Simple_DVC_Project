@@ -3,4 +3,3 @@ This is a simple DVC project showcase
 
 # Workflow
 <img src = 'others/dvc_.png' alt = 'workflow' >
-cd
