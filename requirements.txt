@@ -1,4 +1,5 @@
-
+# local lib
+-e .
 # dvc
 dvc
 dvc[gdrive]
