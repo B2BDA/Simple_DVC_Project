@@ -4,22 +4,22 @@ stages:
     cmd: python src/stage_01_load_and_save.py --config=params.yaml
     deps:
     - path: src/stage_01_load_and_save.py
-      md5: 0e2df85ec7a30f516eda7f27e547f7b6
-      size: 952
+      md5: b3f9843df15bb63d4646df0f48fdf2f4
+      size: 941
     params:
       params.yaml:
         artifacts.raw_local_data: artifacts/raw_local_data_dir/data.csv
         data_source.s3_source: C:\Users\bishw\OneDrive\Documents\winequality-red.csv
     outs:
     - path: artifacts/raw_local_data_dir/data.csv
-      md5: 7bd8fecae1efecf7d2b7330077ffc406
-      size: 105751
+      md5: b81c95040ccc1f04820095a237ba3c61
+      size: 95085
   split_data:
     cmd: python src/stage_02_split_data.py --config=params.yaml
     deps:
     - path: artifacts/raw_local_data_dir/data.csv
-      md5: 7bd8fecae1efecf7d2b7330077ffc406
-      size: 105751
+      md5: b81c95040ccc1f04820095a237ba3c61
+      size: 95085
     - path: src/stage_02_split_data.py
       md5: b189ab27621f8747bc8844f5810ad861
       size: 1272
@@ -33,8 +33,8 @@ stages:
         base.test_size: 0.2
     outs:
     - path: artifacts/processed_data/test.csv
-      md5: 0b9b95d5026bd4715ec942531c303ef4
-      size: 84513
+      md5: 1d99c8fff034000bbfea5fb0cea605cb
+      size: 76018
     - path: artifacts/processed_data/train.csv
-      md5: 3f43ea99f9a09356b1bb3e9fd0c2708e
-      size: 21387
+      md5: d510266e1000ad90309769b4fa7835ca
+      size: 19214
