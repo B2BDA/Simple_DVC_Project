@@ -6,6 +6,8 @@ import logging
 from sklearn.metrics import mean_absolute_error, r2_score, mean_squared_error
 import joblib
 import numpy as np
+logging_str = "[%(asctime)s: %(levelname)s: %(module)s]: %(message)s"
+logging.basicConfig(level= logging.DEBUG, format=logging_str)
 
 def eval_metrics(actual, pred):
     rmse = np.sqrt(mean_squared_error(actual, pred))
@@ -27,6 +29,7 @@ def evaluate(config_path):
     test_x = test.drop(target, axis= 1)
 
     lr = joblib.load(model_path)
+    logging.info(f"Model laoded from {model_path}")
     predicted_values = lr.predict(test_x)
 
     rmse, mae, r2 = eval_metrics(test_y, predicted_values)
@@ -47,5 +50,7 @@ if __name__ == "__main__":
 
     try:
         data = evaluate(config_path = parsed_args.config)
+        logging.info("Evaluate stage is completed")
     except Exception as e:
+        logging.error(e)
         raise e

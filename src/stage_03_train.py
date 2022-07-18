@@ -6,6 +6,9 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import ElasticNet
 import joblib
 
+logging_str = "[%(asctime)s: %(levelname)s: %(module)s]: %(message)s"
+logging.basicConfig(level= logging.DEBUG, format=logging_str)
+
 def train(config_path):
     config = read_params(config_path)
     
@@ -49,6 +52,8 @@ def train(config_path):
 
     joblib.dump(lr, model_path)
 
+    logging.info(f"Model Saved at {model_path}")
+
 if __name__ == "__main__":
     args = argparse.ArgumentParser()
     args.add_argument("--config", default="params.yaml")
@@ -56,5 +61,7 @@ if __name__ == "__main__":
 
     try:
         data = train(config_path = parsed_args.config)
+        logging.info("Train data stage is completed")
     except Exception as e:
+        logging.error(e)
         raise e

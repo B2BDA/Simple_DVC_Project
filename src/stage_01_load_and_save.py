@@ -3,6 +3,9 @@ import argparse
 from src.utils.common_utils import read_params,clean_prev_dirs_if_exists,create_dir,save_local_df
 import logging
 
+logging_str = "[%(asctime)s: %(levelname)s: %(module)s]: %(message)s"
+logging.basicConfig(level= logging.DEBUG, format=logging_str)
+
 def get_data(config_path):
     config = read_params(config_path)
     data_path = config['data_source']['s3_source']
@@ -28,5 +31,7 @@ if __name__ == "__main__":
 
     try:
         data = get_data(config_path = parsed_args.config)
+        logging.info(f"reading and writing raw data stage completed")
     except Exception as e:
+        logging.error(e)
         raise e
