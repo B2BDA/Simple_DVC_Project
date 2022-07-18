@@ -35,6 +35,7 @@ def save_reports(filepath: str, report: dict):
     with open(filepath, "w") as f:
         json.dump(report, f, indent=4)
     f.close()
+    logging.info(f"Details of the reports {report}")
     logging.info(f"Report(s) saved at : {filepath}")
 
 
