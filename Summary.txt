@@ -1,0 +1,19 @@
+We need to create some directories.
+- artifacts/
+- src/utils
+
+We can create a setup.py which can help us install necessary requirements for the project.
+We can create a requirements.txt to store all the necessary python libraries.
+Inside src, we can keep all the necessary pipelines/stage 
+- load and save data, split data, train data and evaluate data.
+Inside src/utils we can keep python files which can be used as common utility function in all the python code.
+Inside the artifacts folder, we can have 
+- raw data dir
+- processed data dir
+- reports
+- saved models
+In the root directory, we can have two files, params.yaml and dvc.yaml
+- params.yaml consists of all the parameters required for the pipelines to run. 
+- dvc.yaml consists of code that helps DVC creates a DVC DAG and helps dvc understands what to run when. 
+We can also mention the dependency files which can be used as a trigger mechanism when changes are detected.
+
